@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Diagnostics;
+using System.IO;
 //using System;
 //using System.Collections.Generic;
 //using System.Linq;
@@ -106,17 +107,20 @@ namespace ThreeDPdfMaker
         private void ButtonMakePDF_Click(object sender, RoutedEventArgs e)
         {
             //string cmd = ssprintf("\"%s/R:\OrthoVis Releases\OtherTools\WebSessionConverter_latest\SessionConverter.exe\" \"%s/data\" \"%s\" \"%s.websession.zip\"", appPath.c_str(), appPath.c_str(), sessionFile.c_str(), sessionNoExtension.c_str());
-            string fullPath = "\"" + LabelDataDir.Content.ToString() + "\\StlToU3d\\StlToU3d.exe\"";
+            string fullPath = LabelDataDir.Content.ToString() + "\\StlToU3d\\StlToU3d.exe";
             Process process = new Process();
             // Configure the process using the StartInfo properties.
             process.StartInfo.FileName = System.IO.Path.GetFileName(fullPath);
             process.StartInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(fullPath);
-            //string outputZip = System.IO.Path.GetFileNameWithoutExtension(LabelSessionFile.Content.ToString()) + ".zip";
-            //string outputDir = System.IO.Path.GetDirectoryName(LabelSessionFile.Content.ToString()) + "\\";
             process.StartInfo.Arguments = "\"" + LabelSessionFile.Content.ToString() + "\"";
             process.Start();
             process.WaitForExit();// Waits here for the process to exit.
-            
+
+            string outputU3d = System.IO.Path.GetFileNameWithoutExtension(LabelSessionFile.Content.ToString()) + ".u3d";
+            string stlToU3dPath = LabelDataDir.Content.ToString() + "\\StlToU3d";
+            string pdfDirPath = LabelDataDir.Content.ToString() + "\\pdf";
+            File.Move(stlToU3dPath + "\\" + outputU3d, pdfDirPath + "\\" + "models.u3d");
+            SetDebugTextAndClipboard("Moved " + stlToU3dPath + "\\" + outputU3d + " to " + pdfDirPath + "\\" + outputU3d);
             //fullPath = @"R:\OrthoVis Releases\OtherTools\StlToU3d_latest\StlToU3d.exe";
             process.StartInfo.FileName = "pdflatex.exe";
             process.StartInfo.WorkingDirectory = LabelDataDir.Content.ToString();
@@ -126,7 +130,7 @@ namespace ThreeDPdfMaker
             process.StartInfo.Arguments = String.Format("-output-directory \"{0}\" \"{0}\\OrthoVis3dModelPlan.tex\"", pdfDir);
             process.Start();
             process.WaitForExit();// Waits here for the process to exit.
-            
+           
             //ProcessStartInfo psi = new ProcessStartInfo();
             //psi.FileName = System.IO.Path.GetFileName(fullPath);
             //psi.WorkingDirectory = System.IO.Path.GetDirectoryName(fullPath);
@@ -138,6 +142,22 @@ namespace ThreeDPdfMaker
 
         private void ButtonButtonWebToDesktop_Click(object sender, RoutedEventArgs e)
         {
+            //Process process = new Process();
+            //string outputU3d = System.IO.Path.GetFileNameWithoutExtension(LabelSessionFile.Content.ToString()) + ".u3d";
+            //string stlToU3dPath = LabelDataDir.Content.ToString() + "\\StlToU3d";
+            //string pdfDirPath = LabelDataDir.Content.ToString() + "\\pdf";
+            //File.Move(stlToU3dPath + "\\" + outputU3d, pdfDirPath + "\\" + outputU3d);
+            //SetDebugTextAndClipboard("Moved " + stlToU3dPath + "\\" + outputU3d + " to " + pdfDirPath + "\\" + outputU3d);
+            ////fullPath = @"R:\OrthoVis Releases\OtherTools\StlToU3d_latest\StlToU3d.exe";
+            //process.StartInfo.FileName = "pdflatex.exe";
+            //process.StartInfo.WorkingDirectory = LabelDataDir.Content.ToString();
+            ////string outputZip = System.IO.Path.GetFileNameWithoutExtension(LabelSessionFile.Content.ToString()) + ".zip";
+            ////string outputDir = System.IO.Path.GetDirectoryName(LabelSessionFile.Content.ToString()) + "\\";
+            //string pdfDir = LabelDataDir.Content.ToString() + "\\pdf";
+            //process.StartInfo.Arguments = String.Format("-output-directory \"{0}\" \"{0}\\OrthoVis3dModelPlan.tex\"", pdfDir);
+            //process.Start();
+            //process.WaitForExit();// Waits here for the process to exit.
+
 //                        //string cmd = ssprintf("\"%s/R:\OrthoVis Releases\OtherTools\WebSessionConverter_latest\SessionConverter.exe\" \"%s/data\" \"%s\" \"%s.websession.zip\"", appPath.c_str(), appPath.c_str(), sessionFile.c_str(), sessionNoExtension.c_str());
 //            string fullPath = @"R:\OrthoVis Releases\OtherTools\StlToU3d_latest\StlToU3d.exe";
 //            ProcessStartInfo psi = new ProcessStartInfo();
