@@ -15,26 +15,6 @@ using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Diagnostics;
 using System.IO;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Windows;
-//using System.Windows.Controls;
-//using System.Windows.Data;
-//using System.Windows.Documents;
-//using System.Windows.Input;
-//using System.Windows.Media;
-//using System.Windows.Media.Imaging;
-//using System.Windows.Navigation;
-//using System.Windows.Shapes;
-
-//using System.Diagnostics;
-//using System.IO.Compression;
-//using Newtonsoft.Json.Linq;
-//using System.IO;
-//using Newtonsoft.Json;
 
 namespace ThreeDPdfMaker
 {
@@ -130,53 +110,10 @@ namespace ThreeDPdfMaker
             process.StartInfo.Arguments = String.Format("-output-directory \"{0}\" \"{0}\\OrthoVis3dModelPlan.tex\"", pdfDir);
             process.Start();
             process.WaitForExit();// Waits here for the process to exit.
-           
-            //ProcessStartInfo psi = new ProcessStartInfo();
-            //psi.FileName = System.IO.Path.GetFileName(fullPath);
-            //psi.WorkingDirectory = System.IO.Path.GetDirectoryName(fullPath);
-            //Debugging
-            //SetDebugTextAndClipboard(outputDir + outputZip);
-            // end debug
-            //Process.Start(psi);
         }
 
         private void ButtonButtonWebToDesktop_Click(object sender, RoutedEventArgs e)
         {
-            //Process process = new Process();
-            //string outputU3d = System.IO.Path.GetFileNameWithoutExtension(LabelSessionFile.Content.ToString()) + ".u3d";
-            //string stlToU3dPath = LabelDataDir.Content.ToString() + "\\StlToU3d";
-            //string pdfDirPath = LabelDataDir.Content.ToString() + "\\pdf";
-            //File.Move(stlToU3dPath + "\\" + outputU3d, pdfDirPath + "\\" + outputU3d);
-            //SetDebugTextAndClipboard("Moved " + stlToU3dPath + "\\" + outputU3d + " to " + pdfDirPath + "\\" + outputU3d);
-            ////fullPath = @"R:\OrthoVis Releases\OtherTools\StlToU3d_latest\StlToU3d.exe";
-            //process.StartInfo.FileName = "pdflatex.exe";
-            //process.StartInfo.WorkingDirectory = LabelDataDir.Content.ToString();
-            ////string outputZip = System.IO.Path.GetFileNameWithoutExtension(LabelSessionFile.Content.ToString()) + ".zip";
-            ////string outputDir = System.IO.Path.GetDirectoryName(LabelSessionFile.Content.ToString()) + "\\";
-            //string pdfDir = LabelDataDir.Content.ToString() + "\\pdf";
-            //process.StartInfo.Arguments = String.Format("-output-directory \"{0}\" \"{0}\\OrthoVis3dModelPlan.tex\"", pdfDir);
-            //process.Start();
-            //process.WaitForExit();// Waits here for the process to exit.
-
-//                        //string cmd = ssprintf("\"%s/R:\OrthoVis Releases\OtherTools\WebSessionConverter_latest\SessionConverter.exe\" \"%s/data\" \"%s\" \"%s.websession.zip\"", appPath.c_str(), appPath.c_str(), sessionFile.c_str(), sessionNoExtension.c_str());
-//            string fullPath = @"R:\OrthoVis Releases\OtherTools\StlToU3d_latest\StlToU3d.exe";
-//            ProcessStartInfo psi = new ProcessStartInfo();
-//            psi.FileName = System.IO.Path.GetFileName(fullPath);
-//            psi.WorkingDirectory = System.IO.Path.GetDirectoryName(fullPath);
-//            string outputZip = System.IO.Path.GetFileNameWithoutExtension(LabelSessionFile.Content.ToString()) + ".zip";
-//            string outputDir = System.IO.Path.GetDirectoryName(LabelSessionFile.Content.ToString()) + "\\";
-//            psi.Arguments = "\"" + LabelDataDir.Content.ToString() + "\" \"" + LabelSessionFile.Content.ToString() + "\" \"" + outputDir + outputZip + "\"";
-//            //Debugging
-//            SetDebugTextAndClipboard(outputDir + outputZip);
-//            // end debug
-//            pdflatex", "-output-directory", ""OUTPUT"", "OrthoVisPreopPlan.tex"
-//            string strCmdText= String.Format("/C copy /b Image1.jpg + Archive.rar Image2.jpg", pdflatex", "-output-directory", ""OUTPUT"", "OrthoVisPreopPlan.tex";
-//System.Diagnostics.Process.Start("CMD.exe",strCmdText);
-//            Process.Start(psi);
-
-
-
-
             //string startPath = @"c:\example\start";
             //string zipPath = @"c:\example\result.zip";
             //string extractPath = @"c:\example\extract";
